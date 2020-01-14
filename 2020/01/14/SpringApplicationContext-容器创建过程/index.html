@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx.conf, MeetEndorphin">
-    <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646">
+    <meta name="keywords" content="SpringApplicationContext 容器创建过程, MeetEndorphin">
+    <meta name="description" content="Spring ApplicationContext 容器创建过程1refresh()
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nginx.conf | MeetEndorphin</title>
+    <title>SpringApplicationContext 容器创建过程 | MeetEndorphin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -281,12 +283,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">nginx.conf</h1>
+                    <h1 class="description center-align post-title">SpringApplicationContext 容器创建过程</h1>
                 </div>
             </div>
         </div>
@@ -403,8 +405,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx%E9%85%8D%E7%BD%AE/">
-                                <span class="chip bg-color">nginx配置</span>
+                            <a href="/tags/spring%E5%AE%B9%E5%99%A8/">
+                                <span class="chip bg-color">spring容器</span>
                             </a>
                         
                     </div>
@@ -415,8 +417,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Nginx/" class="post-category">
-                                Nginx
+                            <a href="/categories/spring/" class="post-category">
+                                spring
                             </a>
                         
                     </div>
@@ -428,7 +430,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-04
+                    2020-01-14
                 </div>
                 
 
@@ -445,9 +447,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">user  root;              #nginx配置用户或者组 ,启动nginx的权限.默认nobody</span><br><span class="line">worker_processes  8;     #并发服务,允许生成的进程数 默认为 1 [number&#x2F;auto]</span><br><span class="line"></span><br><span class="line">error_log  logs&#x2F;error.log;  #制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg    </span><br><span class="line">#error_log  logs&#x2F;error.log  notice;</span><br><span class="line">#error_log  logs&#x2F;error.log  info;</span><br><span class="line"></span><br><span class="line">#pid        logs&#x2F;nginx.pid;   #指定nginx进程运行文件存放地址</span><br><span class="line"></span><br><span class="line">events &#123; #配置虚拟主机的相关参数，一个http中可以有多个server。</span><br><span class="line"></span><br><span class="line">	 accept_mutex on;   	     #设置网路连接序列化，防止惊群现象发生，默认为on</span><br><span class="line">    multi_accept on;  			#设置一个进程是否同时接受多个网络连接，默认为off</span><br><span class="line">    #use epoll;        			#事件驱动模型，select|poll|kqueue|epoll|resig|&#x2F;dev&#x2F;poll|eventport</span><br><span class="line">    worker_connections  1024;   #最大连接数，默认为512</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;#可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置</span><br><span class="line">    include       mime.types;   #网络资源的请求类型[文件扩展名与文件类型映射表]</span><br><span class="line">    default_type  application&#x2F;octet-stream; #默认文件类型，默认为text&#x2F;plain</span><br><span class="line">	</span><br><span class="line">    log_format  myFormat   &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;</span><br><span class="line">                           &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span><br><span class="line">                           &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;; #自定义格式日志格式</span><br><span class="line"></span><br><span class="line">	access_log log&#x2F;access.log myFormat;  #combined为日志格式的默认值</span><br><span class="line">    </span><br><span class="line">	#access_log  off; #取消服务日志</span><br><span class="line"> </span><br><span class="line">    sendfile        on;   #数据传输配置:允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span><br><span class="line">	sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span><br><span class="line">    #tcp_nopush     on;   </span><br><span class="line"></span><br><span class="line">   # keepalive_timeout  0;   #限制某连接单个请求的上线</span><br><span class="line">    keepalive_timeout  65;   #连接超时时间，默认为75s，可以在http，server，location块。</span><br><span class="line"></span><br><span class="line">    #gzip  on; #gzip请求配置</span><br><span class="line">      include config&#x2F;customer-portal.conf; #include配置文件的引入</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	error_page 404 https:&#x2F;&#x2F;www.baidu.com; #错误页</span><br><span class="line">     #负载均衡</span><br><span class="line"> upstream onelife&#123;</span><br><span class="line">              server   10.28.85.132:9086 weight&#x3D;1 max_fails&#x3D;2 fail_timeout&#x3D;900s;</span><br><span class="line">              server   192.168.10.121:3333 backup;  #热备</span><br><span class="line">    &#125;</span><br><span class="line">     upstream imodule-sso-server&#123;</span><br><span class="line">              server   10.28.85.134:9080 weight&#x3D;1 max_fails&#x3D;2 fail_timeout&#x3D;900s;</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">#    client_header_buffer_size 10240k;</span><br><span class="line">#    large_client_header_buffers 4 10240k;</span><br><span class="line"></span><br><span class="line"># 在server 指令中,我们同样可以配置多个 location 指令location 指令能将我们的字符串请求解析到对应的IP和端口,从而去获取正确的资源,location 也可以进行特殊配置,定制 网站的 404 ,500 等页面.</span><br><span class="line">    server &#123;</span><br><span class="line">        keepalive_requests 120; #单连接请求上限次数。	</span><br><span class="line">        listen 80;   #监听端口</span><br><span class="line">        server_name 10.28.85.130;  #监听地址</span><br><span class="line">        charset utf-8;#编码方式</span><br><span class="line">	      </span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">           root   html;</span><br><span class="line">           index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line">        error_page   500 502 503 504  &#x2F;50x.html;</span><br><span class="line">		</span><br><span class="line">        location &#x3D; &#x2F;50x.html &#123; </span><br><span class="line">            root   html; #根目录</span><br><span class="line">			#index vv.txt;  #设置默认页</span><br><span class="line">        &#125;</span><br><span class="line">        location &#x2F;onelife &#123; #~*^.+$#     #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</span><br><span class="line">            proxy_pass   http:&#x2F;&#x2F;onelife;    #请求转向onelife定义的服务器列表</span><br><span class="line">            proxy_set_header  Host       $http_host;</span><br><span class="line">            proxy_set_header  Cookie     $http_cookie;</span><br><span class="line">            proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">            proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            #client_max_body_size  300m;</span><br><span class="line">            expires -1;</span><br><span class="line">            #proxy_read_timeout 150;</span><br><span class="line"></span><br><span class="line">            client_max_body_size 300m;</span><br><span class="line">            client_body_buffer_size 256k;</span><br><span class="line">            proxy_connect_timeout 600;</span><br><span class="line">            proxy_read_timeout 600;</span><br><span class="line">            proxy_send_timeout 600;</span><br><span class="line">            proxy_buffer_size 128k;</span><br><span class="line">            proxy_buffers   4 64k;</span><br><span class="line">            proxy_busy_buffers_size 128k;</span><br><span class="line">            proxy_temp_file_write_size 128k;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">        location &#x2F;imodule-sso-server &#123;</span><br><span class="line">            proxy_pass   http:&#x2F;&#x2F;imodule-sso-server;   #请求转向onelife定义的服务器列表</span><br><span class="line">			deny  127.0.0.1;  #拒绝的ip</span><br><span class="line">            allow 172.18.5.54; #允许的ip</span><br><span class="line">            proxy_set_header  Host       $http_host;</span><br><span class="line">            proxy_set_header  Cookie     $http_cookie;</span><br><span class="line">            proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">            proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            #client_max_body_size  300m;</span><br><span class="line">            expires -1;</span><br><span class="line">            #proxy_read_timeout 150;</span><br><span class="line"></span><br><span class="line">            client_max_body_size 300m;</span><br><span class="line">            client_body_buffer_size 256k;</span><br><span class="line">            proxy_connect_timeout 600;</span><br><span class="line">            proxy_read_timeout 600;</span><br><span class="line">            proxy_send_timeout 600;</span><br><span class="line">            proxy_buffer_size 128k;</span><br><span class="line">            proxy_buffers   4 64k;</span><br><span class="line">            proxy_busy_buffers_size 128k;</span><br><span class="line">            proxy_temp_file_write_size 128k;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="Spring-ApplicationContext-容器创建过程"><a href="#Spring-ApplicationContext-容器创建过程" class="headerlink" title="Spring ApplicationContext 容器创建过程"></a>Spring ApplicationContext 容器创建过程</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">refresh()</span><br></pre></td></tr></table></figure>
 
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (<span class="keyword">this</span>.startupShutdownMonitor) &#123;</span><br><span class="line">			<span class="comment">// Prepare this context for refreshing.</span></span><br><span class="line">			<span class="comment">//刷新前的预处理</span></span><br><span class="line">			<span class="number">1</span>.prepareRefresh(); </span><br><span class="line">			</span><br><span class="line">					&gt;&gt;&gt;&gt;&gt;&gt;&gt;[</span><br><span class="line">					<span class="comment">// Initialize any placeholder property sources in the context environment</span></span><br><span class="line">					<span class="comment">// 初始化一些属性设置;子类自定义个性化属性设置方法</span></span><br><span class="line">					initPropertySources();</span><br><span class="line"></span><br><span class="line">					<span class="comment">// Validate that all properties marked as required are resolvable</span></span><br><span class="line">					<span class="comment">// see ConfigurablePropertyResolver#setRequiredProperties</span></span><br><span class="line">					<span class="comment">//校验属性的合法等</span></span><br><span class="line">					getEnvironment().validateRequiredProperties();</span><br><span class="line"></span><br><span class="line">					<span class="comment">// Allow for the collection of early ApplicationEvents,</span></span><br><span class="line">					<span class="comment">// to be published once the multicaster is available...</span></span><br><span class="line">					<span class="comment">//保存容器中早期的事件</span></span><br><span class="line">					<span class="keyword">this</span>.earlyApplicationEvents = <span class="keyword">new</span> LinkedHashSet&lt;ApplicationEvent&gt;();</span><br><span class="line">					]</span><br><span class="line"></span><br><span class="line">			<span class="comment">// Tell the subclass to refresh the internal bean factory.</span></span><br><span class="line">			<span class="comment">//获取BeanFactory </span></span><br><span class="line">			<span class="number">2</span>.ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</span><br><span class="line">					</span><br><span class="line">					&gt;&gt;&gt;&gt;&gt;&gt;&gt;[</span><br><span class="line">					<span class="comment">//刷新[创建]BeanFacatory DefaultListableBeanFactory 对象</span></span><br><span class="line">					refreshBeanFactory();</span><br><span class="line">					<span class="comment">//返回[获取]DefaultListableBeanFactory</span></span><br><span class="line">					ConfigurableListableBeanFactory beanFactory = getBeanFactory();</span><br><span class="line">					<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">						logger.debug(<span class="string">"Bean factory for "</span> + getDisplayName() + <span class="string">": "</span> + beanFactory);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">return</span> beanFactory;</span><br><span class="line">					</span><br><span class="line">					]</span><br><span class="line">			<span class="comment">// Prepare the bean factory for use in this context.</span></span><br><span class="line">			<span class="comment">// BeanFactory 与准备工作 属性设置(BeanFactory的类加载器 支持表达式解析器)</span></span><br><span class="line">			<span class="number">3</span>.prepareBeanFactory(beanFactory);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">// Allows post-processing of the bean factory in context subclasses.</span></span><br><span class="line">				<span class="comment">//BeanFacatory准备工作完成的后置处理的工作</span></span><br><span class="line">				<span class="number">4</span>.postProcessBeanFactory(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Invoke factory processors registered as beans in the context.</span></span><br><span class="line">				<span class="comment">/*执行 BeanFactoryPostProcessors的方法 --BeanFactory 的后置 处理器.</span></span><br><span class="line"><span class="comment">				在BeanFactory标准初始化之后执行,就是前4步的操作</span></span><br><span class="line"><span class="comment">				两个接口:BeanFactoryPostProcessor,BeanDefinitionRegistryPostProcessor 是BeanFactoryPostProcessor的子接口</span></span><br><span class="line"><span class="comment">				先执行子接口BeanDefinitionRegistryPostProcessor后执行BeanFactoryPostProcessor</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">5</span>.invokeBeanFactoryPostProcessors(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Register bean processors that intercept bean creation.</span></span><br><span class="line">				<span class="comment">/*注册BeanPostProcessor Bean的后置处理器[把BeanPostProcessor添加到beanFactory],拦截Bean的注册过程</span></span><br><span class="line"><span class="comment">				在Bean的创建不同时期执行不同的BeanPostProcessor 及子类</span></span><br><span class="line"><span class="comment">				</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">6</span>.registerBeanPostProcessors(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Initialize message source for this context.</span></span><br><span class="line">				<span class="comment">//初始化MessageSource 国际化功能:消息绑定 消息解析</span></span><br><span class="line">				<span class="comment">//MessageSource 取出国际化配置文件中的某key:按照区域信息获取</span></span><br><span class="line">				<span class="number">7</span>.initMessageSource();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Initialize event multicaster for this context.</span></span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				初始化事件派发器</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">8</span>.initApplicationEventMulticaster();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Initialize other special beans in specific context subclasses.</span></span><br><span class="line">				<span class="comment">// 留给子容器 子类重写该方法 在容器刷新的时候可以自定义逻辑</span></span><br><span class="line">				<span class="number">9</span>.onRefresh();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Check for listener beans and register them.</span></span><br><span class="line">				<span class="comment">// 给容器中将所有ApplicationListener添加到ApplicationEventMulticaster中,注册进来</span></span><br><span class="line">				<span class="number">10</span>.registerListeners();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Instantiate all remaining (non-lazy-init) singletons.</span></span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				preInstantiateSingletons()初始化所有生下来的单实例Bean</span></span><br><span class="line"><span class="comment">				1)获取容器中所有的Bean 依次进行初始化和创建对象</span></span><br><span class="line"><span class="comment">				2)获取Bean的定义信息:RootBeanDefinition</span></span><br><span class="line"><span class="comment">				3)判断Bean不是抽象的 是单实例的 不是懒加载的</span></span><br><span class="line"><span class="comment">				   1),判断是否是FactoryBean 是不是实现了FactoryBean接口的Bean</span></span><br><span class="line"><span class="comment">				   2),不是工厂Bean 就用getBean(beanname)创建对象</span></span><br><span class="line"><span class="comment">				   </span></span><br><span class="line"><span class="comment">				   </span></span><br><span class="line"><span class="comment">						// Give BeanPostProcessors a chance to return a proxy instead of the target bean instance.</span></span><br><span class="line"><span class="comment">			             resolveBeforeInstantiation(beanName, mbdToUse);</span></span><br><span class="line"><span class="comment">						 postProcessBeforeInstantiation</span></span><br><span class="line"><span class="comment">				</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">11</span>.finishBeanFactoryInitialization(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Last step: publish corresponding event.</span></span><br><span class="line">				<span class="comment">//完成BeanFactory的初始化创建工作 也就是IOC容器创建成功</span></span><br><span class="line">				finishRefresh();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">				<span class="keyword">if</span> (logger.isWarnEnabled()) &#123;</span><br><span class="line">					logger.warn(<span class="string">"Exception encountered during context initialization - "</span> +</span><br><span class="line">							<span class="string">"cancelling refresh attempt: "</span> + ex);</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Destroy already created singletons to avoid dangling resources.</span></span><br><span class="line">				destroyBeans();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Reset 'active' flag.</span></span><br><span class="line">				cancelRefresh(ex);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Propagate exception to caller.</span></span><br><span class="line">				<span class="keyword">throw</span> ex;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">finally</span> &#123;</span><br><span class="line">				<span class="comment">// Reset common introspection caches in Spring's core, since we</span></span><br><span class="line">				<span class="comment">// might not ever need metadata for singleton beans anymore...</span></span><br><span class="line">				resetCommonCaches();</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
 
 
             </div>
@@ -474,7 +476,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="47.105.145.116/2020/01/04/nginx-conf/">47.105.145.116/2020/01/04/nginx-conf/</a>
+                    <a href="47.105.145.116/2020/01/14/SpringApplicationContext-%E5%AE%B9%E5%99%A8%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/">47.105.145.116/2020/01/14/SpringApplicationContext-%E5%AE%B9%E5%99%A8%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -512,8 +514,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx%E9%85%8D%E7%BD%AE/">
-                                    <span class="chip bg-color">nginx配置</span>
+                                <a href="/tags/spring%E5%AE%B9%E5%99%A8/">
+                                    <span class="chip bg-color">spring容器</span>
                                 </a>
                             
                         </div>
@@ -679,9 +681,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/01/14/SpringApplicationContext-%E5%AE%B9%E5%99%A8%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/">
                     <div class="card-image">
@@ -701,9 +704,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -716,6 +719,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -734,36 +738,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/29/jasper-PDF%20%E6%9B%B4%E6%94%B9%E5%AD%97%E4%BD%93/">
+                <a href="/2020/01/04/nginx-conf/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="jasper-PDF 更改字体">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="nginx.conf">
                         
-                        <span class="card-title">jasper-PDF 更改字体</span>
+                        <span class="card-title">nginx.conf</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开发环境(Windows)11. 使用公司规定的字体. 引用要求的字体jar包
-
-
-
-
-122.japser 只能加载.ttf的字体,本地JasperStudio 制作时可以设置 PDF Font Name &#x3D;C:\Windows
+                            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Jasper/" class="post-category">
-                                    Jasper
+                            <a href="/categories/Nginx/" class="post-category">
+                                    Nginx
                                 </a>
                             
                             
@@ -773,8 +772,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JasperPDF/">
-                        <span class="chip bg-color">JasperPDF</span>
+                    <a href="/tags/nginx%E9%85%8D%E7%BD%AE/">
+                        <span class="chip bg-color">nginx配置</span>
                     </a>
                     
                 </div>
