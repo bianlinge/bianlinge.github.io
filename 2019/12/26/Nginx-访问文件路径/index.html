@@ -58,7 +58,8 @@
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
-<meta name="generator" content="Hexo 4.1.1"></head>
+<meta name="generator" content="Hexo 4.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -509,21 +510,32 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h2 id="root"><a href="#root" class="headerlink" title="root"></a>root</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F; &#123;</span><br><span class="line">    root html&#x2F;hexo</span><br><span class="line">    index index.html</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>浏览器地址栏访问<br><a href="http://47.105.145:80/" target="_blank" rel="noopener">http://47.105.145:80/</a></p>
+<h2 id="root"><a href="#root" class="headerlink" title="root"></a>root</h2><pre><code>location / {
+    root html/hexo
+    index index.html
+}</code></pre><p>浏览器地址栏访问<br><a href="http://47.105.145:80/" target="_blank" rel="noopener">http://47.105.145:80/</a></p>
 <p>实际路径:/usr/local/nginx/hexo/indexhtml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F;hexo &#123;</span><br><span class="line">    root  html</span><br><span class="line">    index index.html</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>浏览器地址栏访问<br><a href="http://47.105.145:80/hexo" target="_blank" rel="noopener">http://47.105.145:80/hexo</a></p>
+<pre><code>location /hexo {
+    root  html
+    index index.html
+}</code></pre><p>浏览器地址栏访问<br><a href="http://47.105.145:80/hexo" target="_blank" rel="noopener">http://47.105.145:80/hexo</a></p>
 <p>实际路径:/usr/local/nginx/hexo/indexhtml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F;路径名 必须是root 路径下的子路径</span><br><span class="line">root: 配置的路径html+访问的&#x2F;hexo 构成访问的静态资源路径</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F;imag &#123;</span><br><span class="line">    alias  html&#x2F;hexo&#x2F;imag</span><br><span class="line">    index  xo.jpg</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>浏览器地址栏访问:<a href="http://47.105.145:80/imag" target="_blank" rel="noopener">http://47.105.145:80/imag</a></p>
+<pre><code>location /路径名 必须是root 路径下的子路径
+root: 配置的路径html+访问的/hexo 构成访问的静态资源路径</code></pre><hr>
+<h2 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h2><pre><code>location /imag {
+    alias  html/hexo/imag
+    index  xo.jpg
+}</code></pre><p>浏览器地址栏访问:<a href="http://47.105.145:80/imag" target="_blank" rel="noopener">http://47.105.145:80/imag</a></p>
 <p>实际路径:/usr/local/nginx/hexo/imag/xo.jpg</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F;love &#123;</span><br><span class="line">    alias  html&#x2F;hexo&#x2F;imag</span><br><span class="line">    index  xo.jpg</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>浏览器地址栏访问:<a href="http://47.105.145:80/love" target="_blank" rel="noopener">http://47.105.145:80/love</a></p>
+<pre><code>location /love {
+    alias  html/hexo/imag
+    index  xo.jpg
+}</code></pre><p>浏览器地址栏访问:<a href="http://47.105.145:80/love" target="_blank" rel="noopener">http://47.105.145:80/love</a></p>
 <p>实际路径:/usr/local/nginx/hexo/imag/xo.jpg</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">web服务器将会返回服务器上 &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;hexo&#x2F;imag&#x2F;xo.jpg</span><br><span class="line">注意这里是imag，</span><br><span class="line">因为alias会把location后面配置的路径丢弃掉，跟love 没有关系,</span><br><span class="line">把当前匹配到的目录指向到指定的目录。</span><br></pre></td></tr></table></figure>
+<pre><code>web服务器将会返回服务器上 /usr/local/nginx/hexo/imag/xo.jpg
+注意这里是imag，
+因为alias会把location后面配置的路径丢弃掉，跟love 没有关系,
+把当前匹配到的目录指向到指定的目录。</code></pre>
             </div>
             <hr/>
 
@@ -769,12 +781,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开发环境(Windows)11. 使用公司规定的字体. 引用要求的字体jar包
-
-
-
-
-122.japser 只能加载.ttf的字体,本地JasperStudio 制作时可以设置 PDF Font Name &#x3D;C:\Windows
+                            开发环境(Windows)1. 使用公司规定的字体. 引用要求的字体jar包
+2.japser 只能加载.ttf的字体,本地JasperStudio 制作时可以设置 
+PDF Font Name =C:\Windows\Fonts\msyh
                         
                     </div>
                     <div class="publish-info">

@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="SpringApplicationContext 容器创建过程, MeetEndorphin">
-    <meta name="description" content="Spring ApplicationContext 容器创建过程1refresh()
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424">
+    <meta name="description" content="Spring ApplicationContext 容器创建过程refresh()
+synchronized (this.startupShutdownMonitor) {
+            // Prepare this conte">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -29,7 +29,8 @@
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
-<meta name="generator" content="Hexo 4.1.1"></head>
+<meta name="generator" content="Hexo 4.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -447,10 +448,129 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Spring-ApplicationContext-容器创建过程"><a href="#Spring-ApplicationContext-容器创建过程" class="headerlink" title="Spring ApplicationContext 容器创建过程"></a>Spring ApplicationContext 容器创建过程</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">refresh()</span><br></pre></td></tr></table></figure>
+                <h1 id="Spring-ApplicationContext-容器创建过程"><a href="#Spring-ApplicationContext-容器创建过程" class="headerlink" title="Spring ApplicationContext 容器创建过程"></a>Spring ApplicationContext 容器创建过程</h1><pre class="line-numbers language-java"><code class="language-java"><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>startupShutdownMonitor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Prepare this context for refreshing.</span>
+            <span class="token comment" spellcheck="true">//刷新前的预处理</span>
+            <span class="token number">1</span><span class="token punctuation">.</span><span class="token function">prepareRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (<span class="keyword">this</span>.startupShutdownMonitor) &#123;</span><br><span class="line">			<span class="comment">// Prepare this context for refreshing.</span></span><br><span class="line">			<span class="comment">//刷新前的预处理</span></span><br><span class="line">			<span class="number">1</span>.prepareRefresh(); </span><br><span class="line">			</span><br><span class="line">					&gt;&gt;&gt;&gt;&gt;&gt;&gt;[</span><br><span class="line">					<span class="comment">// Initialize any placeholder property sources in the context environment</span></span><br><span class="line">					<span class="comment">// 初始化一些属性设置;子类自定义个性化属性设置方法</span></span><br><span class="line">					initPropertySources();</span><br><span class="line"></span><br><span class="line">					<span class="comment">// Validate that all properties marked as required are resolvable</span></span><br><span class="line">					<span class="comment">// see ConfigurablePropertyResolver#setRequiredProperties</span></span><br><span class="line">					<span class="comment">//校验属性的合法等</span></span><br><span class="line">					getEnvironment().validateRequiredProperties();</span><br><span class="line"></span><br><span class="line">					<span class="comment">// Allow for the collection of early ApplicationEvents,</span></span><br><span class="line">					<span class="comment">// to be published once the multicaster is available...</span></span><br><span class="line">					<span class="comment">//保存容器中早期的事件</span></span><br><span class="line">					<span class="keyword">this</span>.earlyApplicationEvents = <span class="keyword">new</span> LinkedHashSet&lt;ApplicationEvent&gt;();</span><br><span class="line">					]</span><br><span class="line"></span><br><span class="line">			<span class="comment">// Tell the subclass to refresh the internal bean factory.</span></span><br><span class="line">			<span class="comment">//获取BeanFactory </span></span><br><span class="line">			<span class="number">2</span>.ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</span><br><span class="line">					</span><br><span class="line">					&gt;&gt;&gt;&gt;&gt;&gt;&gt;[</span><br><span class="line">					<span class="comment">//刷新[创建]BeanFacatory DefaultListableBeanFactory 对象</span></span><br><span class="line">					refreshBeanFactory();</span><br><span class="line">					<span class="comment">//返回[获取]DefaultListableBeanFactory</span></span><br><span class="line">					ConfigurableListableBeanFactory beanFactory = getBeanFactory();</span><br><span class="line">					<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">						logger.debug(<span class="string">"Bean factory for "</span> + getDisplayName() + <span class="string">": "</span> + beanFactory);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">return</span> beanFactory;</span><br><span class="line">					</span><br><span class="line">					]</span><br><span class="line">			<span class="comment">// Prepare the bean factory for use in this context.</span></span><br><span class="line">			<span class="comment">// BeanFactory 与准备工作 属性设置(BeanFactory的类加载器 支持表达式解析器)</span></span><br><span class="line">			<span class="number">3</span>.prepareBeanFactory(beanFactory);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">// Allows post-processing of the bean factory in context subclasses.</span></span><br><span class="line">				<span class="comment">//BeanFacatory准备工作完成的后置处理的工作</span></span><br><span class="line">				<span class="number">4</span>.postProcessBeanFactory(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Invoke factory processors registered as beans in the context.</span></span><br><span class="line">				<span class="comment">/*执行 BeanFactoryPostProcessors的方法 --BeanFactory 的后置 处理器.</span></span><br><span class="line"><span class="comment">				在BeanFactory标准初始化之后执行,就是前4步的操作</span></span><br><span class="line"><span class="comment">				两个接口:BeanFactoryPostProcessor,BeanDefinitionRegistryPostProcessor 是BeanFactoryPostProcessor的子接口</span></span><br><span class="line"><span class="comment">				先执行子接口BeanDefinitionRegistryPostProcessor后执行BeanFactoryPostProcessor</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">5</span>.invokeBeanFactoryPostProcessors(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Register bean processors that intercept bean creation.</span></span><br><span class="line">				<span class="comment">/*注册BeanPostProcessor Bean的后置处理器[把BeanPostProcessor添加到beanFactory],拦截Bean的注册过程</span></span><br><span class="line"><span class="comment">				在Bean的创建不同时期执行不同的BeanPostProcessor 及子类</span></span><br><span class="line"><span class="comment">				</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">6</span>.registerBeanPostProcessors(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Initialize message source for this context.</span></span><br><span class="line">				<span class="comment">//初始化MessageSource 国际化功能:消息绑定 消息解析</span></span><br><span class="line">				<span class="comment">//MessageSource 取出国际化配置文件中的某key:按照区域信息获取</span></span><br><span class="line">				<span class="number">7</span>.initMessageSource();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Initialize event multicaster for this context.</span></span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				初始化事件派发器</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">8</span>.initApplicationEventMulticaster();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Initialize other special beans in specific context subclasses.</span></span><br><span class="line">				<span class="comment">// 留给子容器 子类重写该方法 在容器刷新的时候可以自定义逻辑</span></span><br><span class="line">				<span class="number">9</span>.onRefresh();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Check for listener beans and register them.</span></span><br><span class="line">				<span class="comment">// 给容器中将所有ApplicationListener添加到ApplicationEventMulticaster中,注册进来</span></span><br><span class="line">				<span class="number">10</span>.registerListeners();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Instantiate all remaining (non-lazy-init) singletons.</span></span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				preInstantiateSingletons()初始化所有生下来的单实例Bean</span></span><br><span class="line"><span class="comment">				1)获取容器中所有的Bean 依次进行初始化和创建对象</span></span><br><span class="line"><span class="comment">				2)获取Bean的定义信息:RootBeanDefinition</span></span><br><span class="line"><span class="comment">				3)判断Bean不是抽象的 是单实例的 不是懒加载的</span></span><br><span class="line"><span class="comment">				   1),判断是否是FactoryBean 是不是实现了FactoryBean接口的Bean</span></span><br><span class="line"><span class="comment">				   2),不是工厂Bean 就用getBean(beanname)创建对象</span></span><br><span class="line"><span class="comment">				   </span></span><br><span class="line"><span class="comment">				   </span></span><br><span class="line"><span class="comment">						// Give BeanPostProcessors a chance to return a proxy instead of the target bean instance.</span></span><br><span class="line"><span class="comment">			             resolveBeforeInstantiation(beanName, mbdToUse);</span></span><br><span class="line"><span class="comment">						 postProcessBeforeInstantiation</span></span><br><span class="line"><span class="comment">				</span></span><br><span class="line"><span class="comment">				*/</span></span><br><span class="line">				<span class="number">11</span>.finishBeanFactoryInitialization(beanFactory);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Last step: publish corresponding event.</span></span><br><span class="line">				<span class="comment">//完成BeanFactory的初始化创建工作 也就是IOC容器创建成功</span></span><br><span class="line">				finishRefresh();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">				<span class="keyword">if</span> (logger.isWarnEnabled()) &#123;</span><br><span class="line">					logger.warn(<span class="string">"Exception encountered during context initialization - "</span> +</span><br><span class="line">							<span class="string">"cancelling refresh attempt: "</span> + ex);</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Destroy already created singletons to avoid dangling resources.</span></span><br><span class="line">				destroyBeans();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Reset 'active' flag.</span></span><br><span class="line">				cancelRefresh(ex);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Propagate exception to caller.</span></span><br><span class="line">				<span class="keyword">throw</span> ex;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">finally</span> &#123;</span><br><span class="line">				<span class="comment">// Reset common introspection caches in Spring's core, since we</span></span><br><span class="line">				<span class="comment">// might not ever need metadata for singleton beans anymore...</span></span><br><span class="line">				resetCommonCaches();</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+                    <span class="token operator">>>></span><span class="token operator">>>></span><span class="token operator">></span><span class="token punctuation">[</span>
+                    <span class="token comment" spellcheck="true">// Initialize any placeholder property sources in the context environment</span>
+                    <span class="token comment" spellcheck="true">// 初始化一些属性设置;子类自定义个性化属性设置方法</span>
+                    <span class="token function">initPropertySources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+                    <span class="token comment" spellcheck="true">// Validate that all properties marked as required are resolvable</span>
+                    <span class="token comment" spellcheck="true">// see ConfigurablePropertyResolver#setRequiredProperties</span>
+                    <span class="token comment" spellcheck="true">//校验属性的合法等</span>
+                    <span class="token function">getEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validateRequiredProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token comment" spellcheck="true">// Allow for the collection of early ApplicationEvents,</span>
+                    <span class="token comment" spellcheck="true">// to be published once the multicaster is available...</span>
+                    <span class="token comment" spellcheck="true">//保存容器中早期的事件</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>earlyApplicationEvents <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashSet</span><span class="token operator">&lt;</span>ApplicationEvent<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">]</span>
+
+            <span class="token comment" spellcheck="true">// Tell the subclass to refresh the internal bean factory.</span>
+            <span class="token comment" spellcheck="true">//获取BeanFactory </span>
+            <span class="token number">2</span><span class="token punctuation">.</span>ConfigurableListableBeanFactory beanFactory <span class="token operator">=</span> <span class="token function">obtainFreshBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token operator">>>></span><span class="token operator">>>></span><span class="token operator">></span><span class="token punctuation">[</span>
+                    <span class="token comment" spellcheck="true">//刷新[创建]BeanFacatory DefaultListableBeanFactory 对象</span>
+                    <span class="token function">refreshBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment" spellcheck="true">//返回[获取]DefaultListableBeanFactory</span>
+                    ConfigurableListableBeanFactory beanFactory <span class="token operator">=</span> <span class="token function">getBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>logger<span class="token punctuation">.</span><span class="token function">isDebugEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Bean factory for "</span> <span class="token operator">+</span> <span class="token function">getDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">": "</span> <span class="token operator">+</span> beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> beanFactory<span class="token punctuation">;</span>
+
+                    <span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">// Prepare the bean factory for use in this context.</span>
+            <span class="token comment" spellcheck="true">// BeanFactory 与准备工作 属性设置(BeanFactory的类加载器 支持表达式解析器)</span>
+            <span class="token number">3</span><span class="token punctuation">.</span><span class="token function">prepareBeanFactory</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// Allows post-processing of the bean factory in context subclasses.</span>
+                <span class="token comment" spellcheck="true">//BeanFacatory准备工作完成的后置处理的工作</span>
+                <span class="token number">4</span><span class="token punctuation">.</span><span class="token function">postProcessBeanFactory</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Invoke factory processors registered as beans in the context.</span>
+                <span class="token comment" spellcheck="true">/*执行 BeanFactoryPostProcessors的方法 --BeanFactory 的后置 处理器.
+                在BeanFactory标准初始化之后执行,就是前4步的操作
+                两个接口:BeanFactoryPostProcessor,BeanDefinitionRegistryPostProcessor 是BeanFactoryPostProcessor的子接口
+                先执行子接口BeanDefinitionRegistryPostProcessor后执行BeanFactoryPostProcessor
+                */</span>
+                <span class="token number">5</span><span class="token punctuation">.</span><span class="token function">invokeBeanFactoryPostProcessors</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Register bean processors that intercept bean creation.</span>
+                <span class="token comment" spellcheck="true">/*注册BeanPostProcessor Bean的后置处理器[把BeanPostProcessor添加到beanFactory],拦截Bean的注册过程
+                在Bean的创建不同时期执行不同的BeanPostProcessor 及子类
+
+                */</span>
+                <span class="token number">6</span><span class="token punctuation">.</span><span class="token function">registerBeanPostProcessors</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Initialize message source for this context.</span>
+                <span class="token comment" spellcheck="true">//初始化MessageSource 国际化功能:消息绑定 消息解析</span>
+                <span class="token comment" spellcheck="true">//MessageSource 取出国际化配置文件中的某key:按照区域信息获取</span>
+                <span class="token number">7</span><span class="token punctuation">.</span><span class="token function">initMessageSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Initialize event multicaster for this context.</span>
+                <span class="token comment" spellcheck="true">/*
+                初始化事件派发器
+                */</span>
+                <span class="token number">8</span><span class="token punctuation">.</span><span class="token function">initApplicationEventMulticaster</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Initialize other special beans in specific context subclasses.</span>
+                <span class="token comment" spellcheck="true">// 留给子容器 子类重写该方法 在容器刷新的时候可以自定义逻辑</span>
+                <span class="token number">9</span><span class="token punctuation">.</span><span class="token function">onRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Check for listener beans and register them.</span>
+                <span class="token comment" spellcheck="true">// 给容器中将所有ApplicationListener添加到ApplicationEventMulticaster中,注册进来</span>
+                <span class="token number">10</span><span class="token punctuation">.</span><span class="token function">registerListeners</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Instantiate all remaining (non-lazy-init) singletons.</span>
+                <span class="token comment" spellcheck="true">/*
+                preInstantiateSingletons()初始化所有生下来的单实例Bean
+                1)获取容器中所有的Bean 依次进行初始化和创建对象
+                2)获取Bean的定义信息:RootBeanDefinition
+                3)判断Bean不是抽象的 是单实例的 不是懒加载的
+                   1),判断是否是FactoryBean 是不是实现了FactoryBean接口的Bean
+                   2),不是工厂Bean 就用getBean(beanname)创建对象
+
+
+                        // Give BeanPostProcessors a chance to return a proxy instead of the target bean instance.
+                         resolveBeforeInstantiation(beanName, mbdToUse);
+                         postProcessBeforeInstantiation
+
+                */</span>
+                <span class="token number">11</span><span class="token punctuation">.</span><span class="token function">finishBeanFactoryInitialization</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Last step: publish corresponding event.</span>
+                <span class="token comment" spellcheck="true">//完成BeanFactory的初始化创建工作 也就是IOC容器创建成功</span>
+                <span class="token function">finishRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">BeansException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>logger<span class="token punctuation">.</span><span class="token function">isWarnEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    logger<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"Exception encountered during context initialization - "</span> <span class="token operator">+</span>
+                            <span class="token string">"cancelling refresh attempt: "</span> <span class="token operator">+</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token comment" spellcheck="true">// Destroy already created singletons to avoid dangling resources.</span>
+                <span class="token function">destroyBeans</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Reset 'active' flag.</span>
+                <span class="token function">cancelRefresh</span><span class="token punctuation">(</span>ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// Propagate exception to caller.</span>
+                <span class="token keyword">throw</span> ex<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// Reset common introspection caches in Spring's core, since we</span>
+                <span class="token comment" spellcheck="true">// might not ever need metadata for singleton beans anymore...</span>
+                <span class="token function">resetCommonCaches</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -698,9 +818,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Spring ApplicationContext 容器创建过程1refresh()
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424
+                            Spring ApplicationContext 容器创建过程refresh()
+synchronized (this.startupShutdownMonitor) {
+            // Prepare this conte
                         
                     </div>
                     <div class="publish-info">
@@ -750,7 +870,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                            user  root;              #nginx配置用户或者组 ,启动nginx的权限.默认nobody
+worker_processes  8;     #并发服务,允许生成的进程数 默认为 1 [number/auto]
+
                         
                     </div>
                     <div class="publish-info">
